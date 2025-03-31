@@ -33,4 +33,7 @@ jobs:
           python-version: '3.x'
 
       - name: Run Python script
+        env:
+          TEST2: ${{ secrets.TEST_ENV_VAR }}
+          TEST_ENV_VAR: testing
         run: python script.py
