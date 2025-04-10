@@ -25,6 +25,10 @@ jobs:
           if [[ "${{ github.head_ref }}" != "qa" ]]; then
             echo "::warning::PRs into main must come from 'qa' branch. Please follow dev → qa → main flow."
           fi
+      - name: Show PR branches
+        run: |
+          echo "Source branch: ${{ github.head_ref }}"
+          echo "Target branch: ${{ github.base_ref }}"
       - name: Fail if PR is not from qa
         if: ${{ github.head_ref != 'qa' }}
         run: |
