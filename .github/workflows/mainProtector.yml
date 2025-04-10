@@ -27,7 +27,6 @@ jobs:
           fi
       - name: Fail if PR is not from qa
         if: ${{ github.head_ref != 'qa' }}
-        uses: actions/github-script@v6
         run: |
           echo "❌ This PR is not coming from 'qa'. All merges to 'main' must originate from 'qa'."
           exit 1
